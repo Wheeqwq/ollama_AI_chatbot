@@ -1,0 +1,91 @@
+/* 根容器，確保整體布局致中 */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* 聊天窗口容器 */
+.chat-container {
+  width: 80%; /* 讓聊天紀錄區域更寬 */
+  max-width: 900px; /* 限制最大寬度 */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* 讓子元素填滿父容器 */
+  margin: 0 auto; /* 居中 */
+}
+
+/* 每條消息的容器，控制 AI 在左、用户在右 */
+.message-container {
+  display: flex;
+  width: 100%; /* 讓消息行占滿整個寬度 */
+  margin-bottom: 10px; /* 消息間距 */
+}
+
+/* AI 消息靠左 */
+.message-container.ai {
+  justify-content: flex-start;
+}
+
+/* 用户消息靠右 */
+.message-container.user {
+  justify-content: flex-end;
+}
+
+/* 消息樣式 */
+.message {
+  max-width: 60%; /* 限制消息最大宽度，防止太长 */
+  padding: 10px;
+  border-radius: 8px;
+  word-wrap: break-word;
+  text-align: left;
+  --message-color-ai: #d9dede;
+  --message-color-user: #F95738;
+}
+
+/* AI 消息 */
+.message.ai {
+  background-color: var(--message-color-ai);
+}
+
+/* 用戶消息 */
+.message.user {
+  background-color: var(--message-color-user);
+  color: white;
+}
+
+/* 輸入框 & 按鈕 */
+.input-form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  width: 80%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 10px;
+}
+
+.input-form input[type="text"] {
+  flex-grow: 1; /* 讓輸入框佔據所有可用空間 */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-form input[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.input-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
